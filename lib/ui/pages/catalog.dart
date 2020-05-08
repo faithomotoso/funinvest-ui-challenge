@@ -29,6 +29,7 @@ class _CatalogPageState extends State<CatalogPage> {
 
     return Container(
       color: purpleColor,
+      padding: EdgeInsets.only(top: topPadding + 30),
       child: ListView(
 //        shrinkWrap: true,
         children: <Widget>[
@@ -42,26 +43,52 @@ class _CatalogPageState extends State<CatalogPage> {
           SizedBox(
             height: 22,
           ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            physics: BouncingScrollPhysics(),
-            child: Row(
-              children: <Widget>[
-                for (int i = 0; i < app.newInvestments.length; i++)
-                  Row(
-                    children: <Widget>[
-                      SizedBox(
-                        width: 16,
-                      ),
-                      NewInvestmentWidget(
-                        newInvestment: app.newInvestments[i],
-                      ),
-                      SizedBox(
-                        width: i == app.newInvestments.length - 1 ? 16 : 0,
-                      )
-                    ],
-                  ),
-              ],
+//          SingleChildScrollView(
+//            scrollDirection: Axis.horizontal,
+//            physics: BouncingScrollPhysics(),
+//            child: Row(
+//              children: <Widget>[
+//                for (int i = 0; i < app.newInvestments.length; i++)
+//                  Row(
+//                    children: <Widget>[
+//                      SizedBox(
+//                        width: 16,
+//                      ),
+//                      NewInvestmentWidget(
+//                        newInvestment: app.newInvestments[i],
+//                      ),
+//                      SizedBox(
+//                        width: i == app.newInvestments.length - 1 ? 16 : 0,
+//                      )
+//                    ],
+//                  ),
+//              ],
+//            ),
+//          ),
+          AspectRatio(
+            aspectRatio: 2,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              physics: BouncingScrollPhysics(),
+              separatorBuilder: (context, index) {
+                return SizedBox(width: 16,);
+              },
+              itemCount: app.newInvestments.length,
+              itemBuilder: (context, index) {
+                return Row(
+                  children: <Widget>[
+                    SizedBox(
+                      width: index == 0 ? 16 : 0,
+                    ),
+                    NewInvestmentWidget(
+                      newInvestment: app.newInvestments[index],
+                    ),
+                    SizedBox(
+                      width: index == app.newInvestments.length - 1 ? 16 : 0,
+                    )
+                  ],
+                );
+              },
             ),
           ),
           SizedBox(

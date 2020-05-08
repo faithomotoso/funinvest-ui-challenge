@@ -13,7 +13,7 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  final offWhite = Colors.white.withOpacity(0.6);
+  final offWhite = Colors.white.withOpacity(0.66);
 
   List<_SettingsItem> items = [
     _SettingsItem(name: "Account", icon: Icons.person),
@@ -27,6 +27,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Container(
       color: purpleColor,
+      padding: EdgeInsets.only(top: topPadding + 30),
       child: ListView.separated(
         physics: NeverScrollableScrollPhysics(),
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -51,8 +52,9 @@ class _SettingsPageState extends State<SettingsPage> {
                 items[index].name,
                 style: TextStyle(
                   color: offWhite,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600
+                  fontSize: 22,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: 0.6
                 ),
               )
             ],

@@ -1,6 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:funinvest_ui_challenge/business_logic/app/app.dart';
 import 'package:funinvest_ui_challenge/ui/components/app_bar.dart';
 import 'package:funinvest_ui_challenge/ui/pages/catalog.dart';
 import 'package:funinvest_ui_challenge/ui/pages/profile.dart';
@@ -20,6 +21,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   Dimens dimens;
+  App app = App();
   int _pageIndex = 0;
   List pages = [
     ProfilePage(),
@@ -28,7 +30,6 @@ class _HomeState extends State<Home> {
     SettingsPage(),
   ];
 
-
   @override
   Widget build(BuildContext context) {
     dimens = Dimens(context);
@@ -36,38 +37,52 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: purpleColor,
       body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            CustomAppBar(),
-            SizedBox(
-              height: 10,
-            ),
-            Expanded(
-//            child: pages[_pageIndex],
-              child: PageTransitionSwitcher(
-                transitionBuilder: (Widget child,
-                Animation<double> animation,
-                Animation<double> secondaryAnimation){
-                  return FadeThroughTransition(
-                    animation: animation,
-                    secondaryAnimation: secondaryAnimation,
-                    child: child,
-                  );
-                },
-                duration: Duration(milliseconds: 300),
-                child: pages[_pageIndex],
-              ),
-            )
-          ],
-        ),
+//        child: Column(
+//          children: <Widget>[
+//            CustomAppBar(),
+//            SizedBox(
+//              height: 10,
+//            ),
+//            Expanded(
+////            child: pages[_pageIndex],
+//              child: PageTransitionSwitcher(
+//                transitionBuilder: (Widget child, Animation<double> animation,
+//                    Animation<double> secondaryAnimation) {
+//                  return FadeThroughTransition(
+//                    animation: animation,
+//                    secondaryAnimation: secondaryAnimation,
+//                    child: child,
+//                  );
+//                },
+//                duration: Duration(milliseconds: 300),
+//                child: pages[_pageIndex],
+//              ),
+//            )
+//          ],
+//        ),
+
+      child: Stack(
+        children: <Widget>[
+          PageTransitionSwitcher(
+            transitionBuilder: (Widget child, Animation<double> animation,
+                Animation<double> secondaryAnimation) {
+              return FadeThroughTransition(
+                animation: animation,
+                secondaryAnimation: secondaryAnimation,
+                child: child,
+              );
+            },
+            duration: Duration(milliseconds: 300),
+            child: pages[_pageIndex],
+          ),
+          CustomAppBar(),
+        ],
+      ),
       ),
       bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: darkPurpleColor,
-            boxShadow: [
-              BoxShadow(blurRadius: 20, color: Colors.black.withOpacity(.1))
-            ]
-        ),
+        decoration: BoxDecoration(color: darkPurpleColor, boxShadow: [
+          BoxShadow(blurRadius: 20, color: Colors.black.withOpacity(.1))
+        ]),
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 14),
@@ -80,16 +95,20 @@ class _HomeState extends State<Home> {
               padding: EdgeInsets.symmetric(horizontal: 18, vertical: 4),
               color: lightPurpleColor,
               tabBackgroundColor: lightPurpleColor,
-              onTabChange: (index){
+              onTabChange: (index) {
                 setState(() {
                   _pageIndex = index;
+                  if (index == 0) {
+                    app.isHome.value = true;
+                  } else {
+                    app.isHome.value = false;
+                  }
                 });
               },
               tabs: [
                 GButton(
                   icon: LineIcons.home,
                   text: "Home",
-
                 ),
                 GButton(
                   icon: LineIcons.dashcube,

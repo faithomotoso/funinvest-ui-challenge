@@ -5,3 +5,5 @@ final Color lightPurpleColor = Color(0xffc73af9);
 final Color darkPurpleColor = Color(0xff210544);
 
 final double radius = 24.0;
+
+double topPadding = 40;

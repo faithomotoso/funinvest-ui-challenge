@@ -1,15 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:funinvest_ui_challenge/business_logic/app/app.dart';
 import 'package:funinvest_ui_challenge/utils/utils.dart';
 import 'package:line_icons/line_icons.dart';
 
 class CustomAppBar extends StatelessWidget {
+  App app = App();
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: purpleColor,
-      height: 70,
+//      color: purpleColor,
+      height: 60,
       padding: EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -19,7 +21,21 @@ class CustomAppBar extends StatelessWidget {
             Icons.drag_handle,
             color: Colors.white,
           ),
-          _avatar(),
+//          _avatar(),
+          ValueListenableBuilder(
+            valueListenable: app.isHome,
+            builder: (context, isHome, child) {
+              return AnimatedCrossFade(
+                crossFadeState: isHome ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+                firstChild: _bell(),
+                secondChild: _avatar(),
+                duration: Duration(milliseconds: 250),
+
+              );
+//              return isHome ? _bell() : _avatar();
+            },
+          ),
+
         ],
       ),
     );
@@ -32,7 +48,7 @@ class CustomAppBar extends StatelessWidget {
         children: <Widget>[
           Center(
             child: CircleAvatar(
-              backgroundImage: AssetImage("assets/avatar/avatar.jfif"),
+              backgroundImage: AssetImage(app.avatarLoc),
               radius: 26,
             ),
           ),
@@ -59,6 +75,43 @@ class CustomAppBar extends StatelessWidget {
             ),
           )
         ],
+      ),
+    );
+  }
+
+  Widget _bell() {
+    return Container(
+      height: 60,
+      child: Center(
+        child: Stack(
+          children: <Widget>[
+            Icon(CupertinoIcons.bell_solid,
+            size: 30,
+            color: Colors.white,),
+            Positioned(
+              top: 4,
+              right: 0,
+              child: Container(
+                height: 16,
+                width: 16,
+                decoration: BoxDecoration(
+                    color: purpleColor,
+                    shape: BoxShape.circle
+                ),
+                child: Center(
+                  child: Container(
+                    height: 8,
+                    width: 8,
+                    decoration: BoxDecoration(
+                        color: lightPurpleColor,
+                        shape: BoxShape.circle
+                    ),
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
