@@ -19,7 +19,7 @@ class StatisticsMonthWidget extends StatelessWidget {
         return Container(
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(35), color: darkPurpleColor),
-//      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.symmetric(vertical: 12),
           child: Column(
             children: <Widget>[
               Padding(
