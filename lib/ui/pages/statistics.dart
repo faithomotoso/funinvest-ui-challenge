@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:funinvest_ui_challenge/business_logic/app/app.dart';
 import 'package:funinvest_ui_challenge/ui/components/statistics_month_widget.dart';
-import 'package:funinvest_ui_challenge/utils/dimens.dart';
 import 'package:funinvest_ui_challenge/utils/utils.dart';
 import 'package:funinvest_ui_challenge/ui/charts/week_revenue_chart.dart';
 

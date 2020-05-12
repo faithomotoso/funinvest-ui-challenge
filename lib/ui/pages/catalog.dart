@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'package:funinvest_ui_challenge/business_logic/app/app.dart';
-import 'package:funinvest_ui_challenge/ui/components/new_investment_widget.dart';
 import 'package:funinvest_ui_challenge/ui/components/proven_investment_widget.dart';
 import 'package:funinvest_ui_challenge/utils/dimens.dart';
 import 'package:funinvest_ui_challenge/utils/utils.dart';
@@ -31,7 +30,6 @@ class _CatalogPageState extends State<CatalogPage> {
       color: purpleColor,
       padding: EdgeInsets.only(top: topPadding + 30),
       child: ListView(
-//        shrinkWrap: true,
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),

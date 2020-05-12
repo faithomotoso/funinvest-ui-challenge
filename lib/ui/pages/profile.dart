@@ -116,30 +116,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
           ),
-//          SingleChildScrollView(
-//            scrollDirection: Axis.horizontal,
-//            physics: BouncingScrollPhysics(),
-//            child: Row(
-//              children: <Widget>[
-//                for (int i = 0; i < app.provenInvestments.length; i++)
-//                  Row(
-//                    children: <Widget>[
-//                      SizedBox(
-//                        width: 20,
-//                      ),
-//                      StocksWidget(
-//                        investment: app.provenInvestments[i],
-//                      ),
-//                      SizedBox(
-//                        width: i == app.provenInvestments.length - 1 ? 20 : 0,
-//                      )
-//                    ],
-//                  )
-//              ],
-//            ),
-//          ),
           AspectRatio(
-//            height: dimens.height * 0.14,
             aspectRatio: 4,
             child: ListView.separated(
               physics: BouncingScrollPhysics(),

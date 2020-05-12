@@ -7,7 +7,7 @@ import 'package:funinvest_ui_challenge/utils/utils.dart';
 
 class NewInvestmentWidget extends StatelessWidget {
   Dimens dimens;
-  NewInvestment newInvestment;
+  final NewInvestment newInvestment;
 
   NewInvestmentWidget({@required this.newInvestment});
 
@@ -18,7 +18,6 @@ class NewInvestmentWidget extends StatelessWidget {
     return Align(
       child: Container(
         width: dimens.width * 0.86,
-//        height: 120,
         decoration: BoxDecoration(
             color: darkPurpleColor,
             borderRadius: BorderRadius.circular(radius)),

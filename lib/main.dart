@@ -5,6 +5,12 @@ import 'package:funinvest_ui_challenge/utils/dimens.dart';
 import 'package:funinvest_ui_challenge/utils/utils.dart';
 import 'package:flutter/services.dart';
 
+/*
+  Fun Invest UI Design gotten from Dribble
+  https://dribbble.com/shots/10498872-FunInvest
+  https://dribbble.com/shots/10605545-FunInvest-2
+ */
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]).then((_){

@@ -152,20 +152,6 @@ class _WeekRevenueChart extends State<WeekRevenueChart> {
           verticalInterval: 2,
         ),
         lineTouchData: LineTouchData(
-//            getTouchedSpotIndicator: (data, i) {
-//              print(i);
-//              print(data);
-//              return [
-//                TouchedSpotIndicatorData(
-//                  FlLine(
-//                    color: Colors.transparent
-//                  ),
-//                  FlDotData(show: true,
-//                    strokeWidth: 10
-//                  )
-//                ),
-//              ];
-//            },
           touchTooltipData: LineTouchTooltipData(
             tooltipBgColor: lightPurpleColor,
             tooltipRoundedRadius: 12,
@@ -178,7 +164,9 @@ class _WeekRevenueChart extends State<WeekRevenueChart> {
                 ret.add(LineTooltipItem(
                     app.companyWeekRevenueData.first.weekRevenueData[pos].displayRevenue(),
                     TextStyle(
-                        color: Colors.white
+                        color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16
                     )
                 ));
               } else {

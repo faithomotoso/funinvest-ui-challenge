@@ -2,15 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:funinvest_ui_challenge/business_logic/app/app.dart';
 import 'package:funinvest_ui_challenge/utils/utils.dart';
-import 'package:line_icons/line_icons.dart';
 
 class CustomAppBar extends StatelessWidget {
-  App app = App();
+  final App app = App();
 
   @override
   Widget build(BuildContext context) {
     return Container(
-//      color: purpleColor,
       height: 60,
       padding: EdgeInsets.symmetric(horizontal: 20),
       child: Row(
@@ -21,7 +19,6 @@ class CustomAppBar extends StatelessWidget {
             Icons.drag_handle,
             color: Colors.white,
           ),
-//          _avatar(),
           ValueListenableBuilder(
             valueListenable: app.isHome,
             builder: (context, isHome, child) {

@@ -5,7 +5,7 @@ import 'package:funinvest_ui_challenge/ui/components/circle_arrow.dart';
 import 'package:funinvest_ui_challenge/utils/utils.dart';
 
 class StatisticsMonthWidget extends StatelessWidget {
-  NewInvestment newInvestment;
+  final NewInvestment newInvestment;
 
   StatisticsMonthWidget({@required this.newInvestment});
 
@@ -31,7 +31,7 @@ class StatisticsMonthWidget extends StatelessWidget {
                       newInvestment.month,
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 22,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold),
                     ),
                     CircleArrow(
@@ -45,7 +45,7 @@ class StatisticsMonthWidget extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 10),
                 child: Container(
-                  height: 35,
+                  height: 30,
                   child: ListView.separated(
                     shrinkWrap: true,
                     physics: BouncingScrollPhysics(),
@@ -67,7 +67,8 @@ class StatisticsMonthWidget extends StatelessWidget {
                 height: 10,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -90,8 +91,7 @@ class StatisticsMonthWidget extends StatelessWidget {
                                   color: Colors.white,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w600,
-                                  letterSpacing: 0.6
-                              ),
+                                  letterSpacing: 0.6),
                             ),
                             Text(
                               newInvestment.stockValue,
@@ -107,21 +107,21 @@ class StatisticsMonthWidget extends StatelessWidget {
                     Center(
                       child: DropdownButtonHideUnderline(
                         child: DropdownButton<String>(
-                          onChanged: (v){
+                          onChanged: (v) {
                             setState(() {
                               v = _selectedOption;
                             });
                           },
                           value: _selectedOption,
                           isDense: true,
-                          style: TextStyle(
-                            color: lightPurpleColor,
-                            fontSize: 20
-                          ),
-                          items: _options.map((e) => DropdownMenuItem(
-                            value: _selectedOption,
-                            child: Text(_selectedOption),
-                          )).toList(),
+                          style:
+                              TextStyle(color: lightPurpleColor, fontSize: 20),
+                          items: _options
+                              .map((e) => DropdownMenuItem(
+                                    value: _selectedOption,
+                                    child: Text(_selectedOption),
+                                  ))
+                              .toList(),
                         ),
                       ),
                     )
@@ -137,15 +137,16 @@ class StatisticsMonthWidget extends StatelessWidget {
 
   Widget dayWidget({@required Day day}) {
     return Container(
-      width: 35,
+      width: 32,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(10),
           color:
               day.isActive ? lightPurpleColor : Colors.white.withOpacity(0.4)),
       child: Center(
           child: Text(
         day.day,
-        style: TextStyle(color: Colors.white, fontSize: 12),
+        style: TextStyle(
+            color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
       )),
     );
   }

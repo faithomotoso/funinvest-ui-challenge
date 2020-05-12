@@ -37,30 +37,6 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: purpleColor,
       body: SafeArea(
-//        child: Column(
-//          children: <Widget>[
-//            CustomAppBar(),
-//            SizedBox(
-//              height: 10,
-//            ),
-//            Expanded(
-////            child: pages[_pageIndex],
-//              child: PageTransitionSwitcher(
-//                transitionBuilder: (Widget child, Animation<double> animation,
-//                    Animation<double> secondaryAnimation) {
-//                  return FadeThroughTransition(
-//                    animation: animation,
-//                    secondaryAnimation: secondaryAnimation,
-//                    child: child,
-//                  );
-//                },
-//                duration: Duration(milliseconds: 300),
-//                child: pages[_pageIndex],
-//              ),
-//            )
-//          ],
-//        ),
-
       child: Stack(
         children: <Widget>[
           PageTransitionSwitcher(
