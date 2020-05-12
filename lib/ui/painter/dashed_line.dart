@@ -10,8 +10,8 @@ class DashedLine extends CustomPainter {
 
     double maxHeight = size.height;
     double y = 0;
-    double dashHeight = 8;
-    int space = 15;
+    double dashHeight = 10;
+    int space = 25;
 
     Path path = Path();
     path.lineTo(0, size.height);

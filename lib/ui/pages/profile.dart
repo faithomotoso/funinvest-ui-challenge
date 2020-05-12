@@ -1,13 +1,12 @@
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:funinvest_ui_challenge/business_logic/app/app.dart';
-import 'package:funinvest_ui_challenge/ui/charts/revenue_chart/revenue_chart.dart';
 import 'package:funinvest_ui_challenge/ui/components/circle_arrow.dart';
 import 'package:funinvest_ui_challenge/ui/components/stocks_widget.dart';
 import 'package:funinvest_ui_challenge/utils/dimens.dart';
 import 'package:funinvest_ui_challenge/utils/utils.dart';
+import 'package:funinvest_ui_challenge/ui/charts/revenue_chart.dart';
 
 class ProfilePage extends StatefulWidget {
 
@@ -151,18 +150,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 );
               },
               itemCount: app.provenInvestments.length,
+              padding: EdgeInsets.only(left: 20, right: 20),
               itemBuilder: (context, index) {
-                return Row(
-                  children: <Widget>[
-                    SizedBox(
-                      width: index == 0 ? 20 : 0,
-                    ),
-                    StocksWidget(investment: app.provenInvestments[index],),
-                    SizedBox(
-                      width: index == app.provenInvestments.length - 1 ? 20 : 0,
-                    )
-                  ],
-                );
+                return StocksWidget(investment: app.provenInvestments[index],);
               },
             )
           ),

@@ -35,63 +35,76 @@ class App {
         iconPath: "assets/company_icons/sony-logo.png",
         stockValue: "-1.00000009\$")
   ];
-  List<Investment> _newInvestments = [
-    Investment(
+  List<NewInvestment> _newInvestments = [
+    NewInvestment(
         name: "MoniCurity",
+        month: "Feb",
         iconPath: "assets/company_icons/monicurity-logo.png",
         description:
-            """An organization that protects against hacker attacks from the internet.\nThis organization was founded with the internet security at the heart of its opertations.
-      """,
-        chanceOfProfit: "31%"),
-    Investment(
-        name: "MoniCurity",
-        iconPath: "assets/company_icons/monicurity-logo.png",
+            "An organization that protects against hacker attacks from the internet.\nThis organization was founded with the internet security at the heart of its opertations.",
+        chanceOfProfit: "31%",
+        stockValue: "+5.136.23",
+    days: List.generate(28, (index) {
+      index += 1;
+      bool isActive = false;
+      if (index == 18 || index == 19) {
+        isActive = true;
+      }
+      return Day(
+        day: index.toString(),
+        isActive: isActive
+      );
+    })),
+    NewInvestment(
+        name: "SpaceX",
+        month: "Feb",
+        iconPath: "assets/company_icons/spacex-logo.jfif",
         description:
-            """An organization that protects against hacker attacks from the internet.\nThis organization was founded with the internet security at the heart of its opertations.
-      """,
-        chanceOfProfit: "31%"),
-    Investment(
-        name: "MoniCurity",
-        iconPath: "assets/company_icons/monicurity-logo.png",
-        description:
-            """An organization that protects against hacker attacks from the internet.\nThis organization was founded with the internet security at the heart of its opertations.
-      """,
-        chanceOfProfit: "31%"),
-    Investment(
-        name: "MoniCurity",
-        iconPath: "assets/company_icons/monicurity-logo.png",
-        description:
-            """An organization that protects against hacker attacks from the internet.\nThis organization was founded with the internet security at the heart of its opertations.
-      """,
-        chanceOfProfit: "31%")
+            "SpaceX has been conducting research and development operations in the field of empowering missions in space.",
+        chanceOfProfit: "31%",
+        stockValue: "-1.252.14",
+    days: List.generate(28, (index) {
+      index += 1;
+      bool isActive = false;
+      if (index >= 18 && index <= 20) {
+        isActive = true;
+      }
+      return Day(
+        day: index.toString(),
+        isActive: isActive
+      );
+    })),
   ];
 
   List<RevenueData> _yearRevenueData = [
-    RevenueData(
-      revenue: 450,
-      date: "Oct 19"
-    ),
-    RevenueData(
-      revenue: 820,
-      date: "Nov 19"
-    ),
-    RevenueData(
-      revenue: 530,
-      date: "Dec 19"
-    ),
-    RevenueData(
-      revenue: 900,
-      date: "Jan 20"
-    ),
-    RevenueData(
-      revenue: 650,
-      date: "Feb 20"
-    )
+    RevenueData(revenue: 450, date: "Oct 19"),
+    RevenueData(revenue: 820, date: "Nov 19"),
+    RevenueData(revenue: 530, date: "Dec 19"),
+    RevenueData(revenue: 900, date: "Jan 20"),
+    RevenueData(revenue: 650, date: "Feb 20")
+  ];
+
+  List<CompanyRevenueData> _companyWeekRevenueData = [
+    CompanyRevenueData(
+        companyName: "SpaceX",
+        logoPath: "assets/company_icons/spacex-logo.jfif",
+        weekRevenueData: [
+          RevenueData(revenue: 460, date: "Mon"),
+          RevenueData(revenue: 470, date: "Tue"),
+          RevenueData(revenue: 452, date: "Wed"),
+          RevenueData(revenue: 420, date: "Thu"),
+          RevenueData(revenue: 430, date: "Fri"),
+          RevenueData(revenue: 490, date: "Sat"),
+          RevenueData(revenue: 480, date: "Sun")
+        ])
   ];
 
   List<Investment> get provenInvestments => _provenInvestments;
 
-  List<Investment> get newInvestments => _newInvestments;
+  List<NewInvestment> get newInvestments => _newInvestments;
 
   List<RevenueData> get yearRevenueData => _yearRevenueData;
+
+  List<CompanyRevenueData> get companyWeekRevenueData =>
+      _companyWeekRevenueData;
 }

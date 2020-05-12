@@ -7,7 +7,7 @@ import 'package:funinvest_ui_challenge/utils/utils.dart';
 
 class NewInvestmentWidget extends StatelessWidget {
   Dimens dimens;
-  Investment newInvestment;
+  NewInvestment newInvestment;
 
   NewInvestmentWidget({@required this.newInvestment});
 

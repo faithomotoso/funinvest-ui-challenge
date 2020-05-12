@@ -14,16 +14,18 @@ class RevenueChart extends StatefulWidget {
 
 class _RevenueChartState extends State<RevenueChart> {
   App app = App();
+  List<String> _dropDownOptions = ["month", "year"];
+  String _selectedItem = "year";
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 280,
+      height: 320,
       decoration: BoxDecoration(
         color: darkPurpleColor,
         borderRadius: BorderRadius.circular(36)
       ),
-      padding: EdgeInsets.symmetric(vertical: 30, horizontal: 28),
+      padding: EdgeInsets.symmetric(vertical: 36, horizontal: 28),
       child: Row(
         children: <Widget>[
           Flexible(
@@ -31,11 +33,39 @@ class _RevenueChartState extends State<RevenueChart> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text("Total Revenue for the ...", style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600
-                ),),
+                Row(
+                  children: <Widget>[
+                    Text("Total Revenue for the", style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600
+                    ),),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    DropdownButtonHideUnderline(
+                      child: DropdownButton<String>(
+                        value: _selectedItem,
+                        onChanged: (v){
+                          setState(() {
+                            _selectedItem = v;
+                          });
+                        },
+                        items: _dropDownOptions.map((item) => DropdownMenuItem<String>(
+                          child: Text(item),
+                          value: item,
+                        )).toList(),
+                        style: TextStyle(
+                          color: lightPurpleColor,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600
+                        ),
+                        isDense: true,
+                        
+                      ),
+                    )
+                  ],
+                ),
                 Expanded(
                   child: Align(
                     alignment: Alignment.bottomLeft,
