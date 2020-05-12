@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'package:funinvest_ui_challenge/business_logic/app/app.dart';
+import 'package:funinvest_ui_challenge/ui/components/new_investment_widget.dart';
 import 'package:funinvest_ui_challenge/ui/components/proven_investment_widget.dart';
 import 'package:funinvest_ui_challenge/utils/dimens.dart';
 import 'package:funinvest_ui_challenge/utils/utils.dart';
