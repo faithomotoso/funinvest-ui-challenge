@@ -1,6 +1,21 @@
 # funinvest_ui_challenge
 
-FunInvest UI challenge. UI gotten from https:&#x2F;&#x2F;dribbble.com&#x2F;shots&#x2F;10605545-FunInvest-2
+FunInvest UI challenge. UI gotten from https:&#x2F;&#x2F;dribbble.com&#x2F;shots&#x2F;10605545-FunInvest-2 & https://dribbble.com/shots/10498872-FunInvest
+
+Original UI 
+![Original UI Screenshot](screenshots/funInvest1.png)
+![Original UI Screenshot](screenshots/funinvest2.png)
+
+App Screenshots
+![App Screenshot](screenshots/splashscreen.png)
+
+![App Screenshot](screenshots/home.png)
+
+![App Screenshot](screenshots/statistics.png)
+
+![App Screenshot](screenshots/catalog.png)
+
+![App Screenshot](screenshots/settings.png)
 
 ## Getting Started
 
