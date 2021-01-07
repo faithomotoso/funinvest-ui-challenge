@@ -46,6 +46,7 @@ class _HomeState extends State<Home> {
                 animation: animation,
                 secondaryAnimation: secondaryAnimation,
                 child: child,
+                fillColor: purpleColor,
               );
             },
             duration: Duration(milliseconds: 300),
